@@ -1,6 +1,9 @@
 pipeline {
 
-    agent any
+    agent {
+
+        docker {image 'python.latest'}
+    }
 
  
 
@@ -28,11 +31,7 @@ pipeline {
 
                     // Build Docker image and run
 
-                    docker.image('python:latest').inside {
-
                         sh 'python test.py' // Replace with your actual run command
-
-                    }
 
                 }
 
@@ -40,7 +39,6 @@ pipeline {
 
         }
 
- 
 
         stage('Code Analysis with Horusec') {
 
