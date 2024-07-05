@@ -30,8 +30,6 @@ pipeline {
 
                     docker.image('python:latest').inside {
 
-                        sh 'pip install -r requirements.txt' // Example if you have requirements.txt
-
                         sh 'python test.py' // Replace with your actual run command
 
                     }
