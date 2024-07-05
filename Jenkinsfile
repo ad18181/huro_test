@@ -46,13 +46,8 @@ pipeline {
 
                 script {
 
-                    // Install Horusec CLI if not already installed
-
-                    sh 'curl -fsSL https://install.horusec.io | bash'
-
-                    // Run Horusec scan
-
-                    sh 'horusec start -p .'
+                    sh 'curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest'
+                    sh 'horusec start -p="./" --disable-docker="true"'
 
                 }
 
